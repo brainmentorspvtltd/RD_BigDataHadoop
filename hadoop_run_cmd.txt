@@ -1,0 +1,7 @@
+1. hadoop fs -mkdir /count_input/
+
+2. hadoop fs -put count_vehicles.txt /count_input/
+
+3. hadoop jar WordCount.jar WordCount /count_input/count_vehicles.txt /count_output/
+
+4. hadoop fs -cat /count_output/part-r-00000
