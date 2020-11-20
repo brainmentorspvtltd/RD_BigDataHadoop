@@ -1,0 +1,3 @@
+"hi hello" | python mapper.py | sort | python reducer.py
+
+"hi hello" | python mapper.py | sort -k1,1 | python reducer.py
