@@ -98,50 +98,69 @@ Command: hadoop version
 5. Configurations
 Command: cd hadoop-2.7.3/etc/hadoop/
 Open core-site.xml and edit the property
-Command: vi core-site.xml
+Command: sudo gedit core-site.xml
 paste the xml code in file and save
 
 <configuration>
-   <property>
-       <name>fs.defaultFS</name>
-       <value>hdfs://localhost:9000</value>
-   </property>
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/app/hadoop/tmp</value>
+<description>Parent directory for other temporary directories.</description>
+</property>
+
+<property>
+<name>fs.defaultFS </name>
+<value>hdfs://localhost:54310</value>
+<description>The name of the default file system. </description>
+</property>
 </configuration>
 ======================================================
 
 Edit file hdfs-site.xml
-Command: vi hdfs-site.xml
+Command: sudo gedit hdfs-site.xml
 paste xml code and save this file.
 
 <configuration>
-   <property>
-       <name>dfs.replication</name>
-       <value>1</value>
-   </property>
-   <property>
-       <name>dfs.permission</name>
-       <value>false</value>
-   </property>
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>dfs.permission</name>
+<value>false</value>
+</property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>/home/hdusr_/hdfs</value>
+</property>
 </configuration>
 ======================================================
 
 Edit the mapred-site.xml file and edit the property
-Command: cp mapred-site.xml.template mapred-site.xml
-Command: vi mapred-site.xml
+Command (for hadoop version 2 only): cp mapred-site.xml.template mapred-site.xml
+Command: sudo gedit mapred-site.xml
 
 paste xml code and save this file.
 
 <configuration>
-   <property>
-       <name>mapreduce.framework.name</name>
-       <value>yarn</value>
-   </property>
+<property>
+<name>yarn.app.mapreduce.am.env</name>
+  <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
+<property>
+  <name>mapreduce.map.env</name>
+  <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
+<property>
+  <name>mapreduce.reduce.env</name>
+  <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
 </configuration>
 
 ======================================================
 
 Edit file yarn-site.xml
-Command: vi yarn-site.xml
+Command: sudo gedit yarn-site.xml
 paste xml code and save this file.
 
 <configuration>
@@ -157,7 +176,7 @@ paste xml code and save this file.
 ======================================================
 
 Edit hadoop-env.sh and add the Java Path
-Command: vi hadoop–env.sh
+Command: sudo gedit hadoop–env.sh
 export JAVA_HOME = /home/admin/jdk1....
 
 ======================================================
