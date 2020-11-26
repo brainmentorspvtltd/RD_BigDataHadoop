@@ -69,7 +69,7 @@ Extract hadoop
 Command : tar -xvf hadoop-2.7.3.tar.gz
 ======================================================
 3. Add the Hadoop and Java paths in the bash file (.bashrc)
-Command:  vi .bashrc
+Command:  sudo gedit ~/.bashrc
 #Set HADOOP_HOME
 export HADOOP_HOME=<Installation Directory of Hadoop>
 
