@@ -78,6 +78,15 @@ export JAVA_HOME=<Installation Directory of Java>
 
 # Add bin/ directory of Hadoop to PATH
 export PATH=$PATH:$HADOOP_HOME/bin
+
+ENTER THIS IN BASHRC
+==================================================
+export HADOOP_HOME=/home/ravi/Downloads/hadoop
+export PATH=$PATH:/home/ravi/Downloads/hadoop/bin
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH
+
 ======================================================
 4. Save the bash file and close it
 For applying all these changes to the current Terminal, execute the source command.
