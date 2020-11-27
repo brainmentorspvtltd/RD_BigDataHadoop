@@ -1,0 +1,81 @@
+Hadoop - Java + Python
+Installation - Windows + Linux
+-------------------------------
+
+Hadoop Ecosystem
+- platform or suite which provides various services to solve big data problems
+- it includes Apache projects
+
+4 major elements of Hadoop
+- HDFS
+- YARN
+- MapReduce
+- Hadoop Common
+--------------------------------------
+
+HDFS
+NameNode - master - file type, memory, name (meta data)
+DataNode - slave - actual data
+
+HDFS - Hadoop Distributed File System
+YARN - Yet Another Resource Negotiator
+MapReduce - Programming Based Data Processing
+PIG/HIVE - Query Based Processing of data services
+HBase - NoSQL Database
+Spark - In-Memory Data processing
+Zookeeper - Managing Cluster
+Oozie - Job Scheduling
+Mahout/Spark MLLib - Machine Learning algorithms libraries
+Solar/Lucene - Searching and Indexing
+Drill - SQL on Hadoop
+Flume/Sqoop - Data Integration services
+HCatalog - Table and storage management layer for hadoop
+Avro - Data Serialization System
+Thrift - scalable cross-language services development
+
+
+Apache PIG
+- PIG Latin - Language (Structure is like SQL)
+- PIG Runtime - execution environment (Just Like JVM)
+- 10 line = 150 - 200 lines of MR Java Code
+- Developer by Yahoo
+
+Apache HIVE
+- Developed by Facebook
+- HIVE + SQL = HQL (Hive Query Language)
+- Hive Command Line and JDBC/ODBC Driver
+
+Apache HBase
+- No SQL Database
+- Build upon Google's BigTable
+
+Apache Spark
+- Written in Scala
+- it executes in-memory computations to increase speed of data processing over map-reduce
+- it is 100x faster than hadoop
+
+Apache Mahout
+- Used for Machine Learning
+- Recommendation Systems
+
+Apache Zookeeper
+- Coordinator of jobs running in hadoop
+
+Apache OOZIE
+- For apache jobs, Oozie has been just like a scheduler
+- Oozie workflow and Oozie Coordinator
+
+Apache Flume
+- helps in integration of unstructured and semi-structured data into HDFS
+
+Apache Sqoop
+- import/export structured data
+
+Apache SOLR & LUCENE
+- services used for searching & indexing
+- it is based on java, also helps in spell checks
+
+
+
+
+
