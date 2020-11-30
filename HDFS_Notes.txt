@@ -1,0 +1,72 @@
+HDFS
+- Hadoop Distributed File System
+
+- Master/Slave Topology
+- NameNode, DataNode and Secondary NameNode
+- Block
+- Replication Management
+- Rack Awareness
+- HDFS Read/Write
+---------------------------------
+
+NameNode
+- Master daemon, it manages the DataNode (slave)
+- it stores metadata of the files that are stored in cluster,
+  - e.g - file name, file size, location of blocks stored
+ - there are 2 files being associated with metadata
+   - FsImage
+   - EditLogs
+- it records the changes immediately that happens to the file system.
+- it regularly receives a heartbeat and a block report from all DataNodes in cluster to make sure that DataNode is alive.
+- In case if any one of the datanode failes, then NameNode chooses new DataNodes for new replicas
+
+DataNode
+- Slave node in HDFS
+- these are commodity hardware (cheap machines, that are used regularly)
+- DataNode is a block server that stores the data in local files
+- Actual data is stored on DataNodes
+- it perform low-level read and write requests from the file system's client
+- they regularly send heartbeats to NameNode, every 3 seconds
+
+
+Secondary NameNode
+- there is also a third daemon known as Secondary NameNode
+- it works parallely with primary NameNode as a helper daemon
+- it constantly reads all the file systems and metadata from RAM of NameNode, and writes it into hard disk or the file system
+
+
+What if primary namenode fails ?
+- if we are on hadoop version 1, then the NameNode was a single point of failure, so if it is failed than your cluster will become unusable.
+Admin would have to manually restart the NameNode.
+- if we are on hadoop version 2 onwards, we can handle failures in NameNode. We can run 2 redundant nameNode parallely, so if one of the 	NameNode fails, the cluster will quickly failover to the other NameNode.
+
+Blocks
+- smallest continuous location on hard drive where data is stored.
+
+Replication Management
+- blocks are replicated to provide fault tolerance.
+- default replication factor is 3
+
+Rack Awareness
+- NameNode will make sure that all the replicas are not stored on the same rack or a single rack
+- it follows built-in Rack Awareness Algorithm to reduce latency and provide fault tolerance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
