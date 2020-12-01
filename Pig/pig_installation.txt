@@ -1,0 +1,15 @@
+1. Visit - https://mirrors.estointernet.in/apache/pig/pig-0.17.0/
+2. wget https://mirrors.estointernet.in/apache/pig/pig-0.17.0/pig-0.17.0.tar.gz
+3. tar -xvf pig-0.17.0.tar.gz
+4. su hdusr_
+5. sudo mv pig-0.17.0 /usr/local/
+6. sudo gedit .bashrc
+  Copy paste this code
+=====================================
+export PIG_HOME=/usr/local/pig-0.17.0
+export PATH=$PATH:/usr/local/pig-0.17.0/bin
+=====================================
+7. source .bashrc
+8. pig -version
+9. pig
+

@@ -1,0 +1,48 @@
+Apache PIG
+History
+- it was developed by Yahoo in 2006
+- Pig was open-sourced by Apache in 2007
+- In 2008 Apache Pig was released for first time
+- Hadoop Pig graduated as an Apache top-level project in 2010
+
+What is PIG ?
+- it's an abstraction over MapReduce
+- pig provides a high-level language known as Pig Latin
+- Apache Pig has a component known as Pig Engine, which accepts Pig Latin Scripts as input and converts them into MapReduce Jobs
+
+Why PIG ?
+- Pig Latin is SQL-Like Language
+- it supports basic data operations like joins, order, group by, filters, etc. it also provides nested data types like tuples, bags, maps.
+
+Features of PIG
+- lot of operators
+- handles all kind of data
+- UDF - User Defined Functions
+
+Architecture of PIG
+Parser
+  - Pig Scripts are handled by the Parser. Parser's output will be a DAG (Directed acycling graph).
+  - logical operators of the script are represented as nodes and the data flows are represented as edges.
+
+Optimizer
+- DAG is passed to the logical optimizer
+
+Compiler
+- it compiles the optimized logical plan into a seris of MapReduce jobs
+
+Execution Engine
+- MapReduce jobs are submitted to Hadoop in sorted order. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
