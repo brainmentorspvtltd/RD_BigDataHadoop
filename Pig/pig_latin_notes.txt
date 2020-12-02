@@ -1,0 +1,86 @@
+PIG Latin
+
+Data Model
+- bag is a collection of tuples
+- tuples is an ordered set of fields
+- field is some piece of data
+
+Pig Latin Statements
+grunt> data = LOAD 'file_name.txt' USING PigStorage(',')....
+
+Data Types
+- int
+- long
+- float
+- double
+- chararray - 'brain mentors'
+- Bytearray - blob (binary large object)
+- Datetime
+- Boolean
+- Biginteger
+- Bigdecimal
+------------------
+Complex Data Types
+- Tuple - ('Ram',45,56000)
+- Bag   - {('Ram',45,56000),('Ram',45,56000),('Ram',45,56000)}
+- Map   - ['name'#'Ram', 'age'#45]
+------------------------------------
+Pig Latin - Arithmetic Operators
++
+-
+/
+*
+%
+? => x = (expression) ? value1 if true : value2 if false
+  => x = (c == 10) ? 'yes' : 'no';
+
+CASE
+THEN
+WHEN
+ELSE
+END
+
+CASE x % 2
+WHEN 0 THEN 'even'
+WHEN 1 THEN 'odd'
+END
+
+Comparison Operators
+==
+!=
+>
+<
+>=
+<=
+matches
+
+Type Construction Operators
+() - tuple
+{} - bag
+[] - map
+
+Relation Operations
+- Loading and Storing Data
+  - LOAD - loads the data from file system into a relation
+  - STORE - stores the relation to file system (local/HDFS)
+- Filtering
+  - FILTER   - remove unwanted rows
+  - DISTINCT - unique data
+  - FOREACH, GENERATE - transforms the data based on the columns
+  - STREAM   - to transform a relation using some external program
+- Sorting
+  - ORDER - it arrange a relation in an order based on one or more col
+  - LIMIT - to get a particular number of tuples
+- Grouping & Joining
+  - JOIN - we can join two or more relations
+  - GROUP - groups the data in a single relation
+  - CROSS - we can create the cross product of two or more relations
+  - COGROUP - grouping of data into two or more relations
+- Combining & Splitting
+  - UNION - combines two or more relations into one
+  - SPLIT - split single relation into two or more
+- Diagnostic Operators
+  - DUMP  - prints the content of a relationship
+  - DESCRIBE  - describes the schema of a relation
+  - EXPLAIN - we can view logical, physical execution plans
+  - ILLUSTRATE - displays all the execution steps as the series of statements

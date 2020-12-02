@@ -1,0 +1,11 @@
+1. hdfs dfs -copyFromLocal /home/ravi/data.txt /input_data/
+
+2. grunt> query to load data
+   - data = LOAD 'input_data/data.txt' AS (FName:chararray, LName:chararray, Age:int, Team:chararray);
+
+3. grunt> perform some operation on data
+   - query = FOREACH data generate FName, Age, Team;
+
+4. grunt> dump query;
+
+5. hdfs dfs -cat /output_dir/part-m-00000
