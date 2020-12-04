@@ -31,9 +31,9 @@ Example - 3 (Movies Case Study - superhit movies (rating > 4.0))
 6. limit_data = LIMIT ratings 5;
 7. nameLookup = FOREACH metadata GENERATE movieId, movieName;
 8. groupedRatings = GROUP ratings by movieId;
-9. FOREACH groupedRatings GENERATE group as movieId, AVG(ratings.rating) as avgRating, COUNT(ratings.rating) as numRatings;
+9. averageRatings = FOREACH groupedRatings GENERATE group as movieId, AVG(ratings.rating) as avgRating, COUNT(ratings.rating) as numRatings;
 10. hitMovies = FILTER averageRatings BY avgRating > 4.0;
-11. name_of_movies = JOIN hitMovies BY movieId, nameLookup BY MovieId;
+11. name_of_movies = JOIN hitMovies BY movieId, nameLookup BY movieId;
 12. final_data = ORDER name_of_movies BY avgRating DESC;
 13. top_5 = LIMIT final_data 5;
 14. DUMP top_5;
