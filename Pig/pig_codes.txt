@@ -1,0 +1,48 @@
+Example - 1 (Simple Load and Filter)
+Loading Data
+1. data = LOAD 'path/file.txt' using PigStorage(' ') as (FName:chararray, LName:chararray, HS:int, Team:chararray, Role:chararray)
+
+Print Data
+2. DUMP data;
+
+Load specific columns
+3. data2 = FOREACH data GENERATE FName, LName, HS
+
+Filter data
+4. filter_data = FILTER data by HS > 150;
+
+=====================================
+
+Example - 2 (Find first letter of each word)
+1. data = LOAD 'path/file.txt' as (line:chararray);
+2. tokens = foreach data generate flatten(TOKENIZE(line)) as token:chararray;
+3. all_letters = foreach tokens generate SUBSTRING(token,0,1) as single_letter:chararray;
+4. letters_group = GROUP all_letters by single_letter;
+5. count_letters = foreach letters_group generate group, COUNT(all_letters);
+
+======================================
+
+Example - 3 (Movies Case Study - superhit movies (rating > 4.0))
+1. sudo wget "http://files.grouplens.org/datasets/movielens/ml-100k.zip"
+2. sudo unzip ml-100k.zip
+3. Start Pig Shell
+4. grunt> ratings = LOAD '/movies/u.data' AS (userId:int, movieId:int, rating:int, ratingTime:int);
+5. grunt> metadata = LOAD '/movies/u.item' USING PigStorage('|') AS (movieId:int, movieName:chararray, releaseDate:chararray, videoRelease:chararray, imdbLink:chararray);
+6. limit_data = LIMIT ratings 5;
+7. nameLookup = FOREACH metadata GENERATE movieId, movieName;
+8. groupedRatings = GROUP ratings by movieId;
+9. FOREACH groupedRatings GENERATE group as movieId, AVG(ratings.rating) as avgRating, COUNT(ratings.rating) as numRatings;
+10. hitMovies = FILTER averageRatings BY avgRating > 4.0;
+11. name_of_movies = JOIN hitMovies BY movieId, nameLookup BY MovieId;
+12. final_data = ORDER name_of_movies BY avgRating DESC;
+13. top_5 = LIMIT final_data 5;
+14. DUMP top_5;
+
+
+
+
+
+
+
+
+
