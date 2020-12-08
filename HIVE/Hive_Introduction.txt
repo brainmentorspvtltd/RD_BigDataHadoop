@@ -1,0 +1,51 @@
+Apache HIVE
+- Data warehouse system built on top of hadoop
+- Used for analyzing structured and semi-structured data
+- queries written in HQL (Hive Query Language)
+- Almost similar to SQL
+- internally there is a HIVE compiler which converts HQL into MapReduce Jobs
+- Supports DDL (Data Definition Language) and DML (Data Manipulation Language) and UDF (User Defined Function)
+
+Advantages of HIVE
+- Non programmers can also use HIVE, because it eliminates the need of MapReduce Programs
+- Efficient ETL
+- it supports any client application written in Java, PHP, Python, C++ by exposing its Thrift Server.
+
+
+HIVE Architecture
+- User Interface
+  - Helps to create interaction between user and HDFS
+  - it has web UI, Hive Command Line, Hive HD Insight
+- Meta Store
+  - it stores the schema or Metadata of tables, databases, columns in a table, their data types and HDFS mapping
+- Hive QL Process Engine
+  - it is the replacement of MapReduce, we can write MapReduce queries instead of MapReduce Programs
+- Execution Engine
+  - it processes the query and generate results as same as MapReduce
+- HDFS or HBase
+  - HBASE - Data Storage Technique
+
+HIVE Working
+1. Execute Query using any UI, it sends the query to driver (any database like JDBC) to execute
+2. Driver takes the help of query compiler which prases the query to check syntax and query plan or the requirement of the query.
+3. Compiler sends metadata request to MetaStore (any database)
+4. Then meta store sends meta data as a response to the compiler
+5. Then compiler checks the requirement and resends the plan to driver. 
+6. Now the driver sends the execution plan to execution engine
+7. Finally the execution engine sends the job to JobTracker, which is in a namenode and it assigns the job to TaskTracker, which is in a data node.
+8. While execution is over, the execution engine receives the results from Data Nodes.
+9. After fetching results, execution engine sends those resultant values to driver.
+10. Finally the driver sends the results to Hive Interface.
+
+
+
+
+
+
+
+
+
+
+
+
+
