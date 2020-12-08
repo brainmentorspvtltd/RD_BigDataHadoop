@@ -1,0 +1,33 @@
+1. wget https://archive.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
+2. tar -xzf apache-hive-3.1.2-bin.tar.gz
+3. sudo gedit .bashrc
+4. Set Hive path
+  - export HIVE_HOME=/home/edureka/apache-hive-3.1.2-bin
+  - export PATH=$PATH:/home/edureka/apache-hive-3.1.2-bin/bin
+5. source .bashrc
+6. Check Hive version
+   - hive --version
+7. Edit hive-config.sh and set Hadoop Home Path
+8. Create Hive directory in HDFS
+  - hdfs dfs -mkdir /user/hive/warehouse
+9. Give permissions to warehouse folder
+  - hdfs dfs -chmod g+w /user/hive/warehouse
+  - hdfs dfs -chmod g+w /tmp
+10. Set Hadoop path in hive-env.sh (we have to create this file)
+11. cd conf 
+    sudo cp hive-env.sh.template hive-env.sh
+12. sudo gedit conf/hive-env.sh
+    export HADOOP_HOME = ....
+    export HADOOP_HEAPSIZE = 512
+    export HIVE_CONF_DIR = /usr/local/hive/conf
+13. Edit hive-site.xml in folder conf
+14. Initialize derby database
+    bin/schematool -initSchema -dbType derby
+Use sudo if permission error
+15. lauch hiveserver and hive
+    cd bin
+    sudo ./hiveserver2
+    Open another terminal tab
+    sudo -u hdusr_ ./hive
+
+
