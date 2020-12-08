@@ -16,9 +16,9 @@
 10. cd conf 
     sudo cp hive-env.sh.template hive-env.sh
 11. sudo gedit conf/hive-env.sh
-    export HADOOP_HOME = ....
-    export HADOOP_HEAPSIZE = 512
-    export HIVE_CONF_DIR = /usr/local/hive/conf
+    export HADOOP_HOME=$HADOOP_HOME
+    export HADOOP_HEAPSIZE=512
+    export HIVE_CONF_DIR=$HIVE_HOME/conf
 12. Edit hive-site.xml in folder conf
 
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
