@@ -2,8 +2,8 @@
 2. tar -xzf apache-hive-3.1.2-bin.tar.gz
 3. sudo gedit .bashrc
 4. Set Hive path
-  - export HIVE_HOME=/home/edureka/apache-hive-3.1.2-bin
-  - export PATH=$PATH:/home/edureka/apache-hive-3.1.2-bin/bin
+  - export HIVE_HOME=/path/apache-hive-3.1.2-bin
+  - export PATH=$PATH:/path/apache-hive-3.1.2-bin/bin
 5. source .bashrc
 6. Check Hive version
    - hive --version
@@ -41,7 +41,7 @@ limitations under the License.
 <configuration>
 <property>
 <name>javax.jdo.option.ConnectionURL</name>
-<value>jdbc:derby:;databaseName=/home/edureka/apache-hive-2.1.0-bin/metastore_db;create=true</value>
+<value>jdbc:derby:;databaseName=/path/apache-hive-2.1.0-bin/metastore_db;create=true</value>
 <description>
 JDBC connect string for a JDBC metastore.
 To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.
